@@ -8,26 +8,12 @@ public class Car extends Item {
     private int size;
     private String model;
 
-   // private Type type;
-
     public Car(String name, String color){
         super(name);
         this.color = color;
         this.carName = name;
         count++;
         log.info("Current car: " + this.carName);
-    }
-
-    public Car(Type type){
-      //  this.type = type;
-        switch (type){
-            case NORMAL:
-                System.out.println("Normal");
-                break;
-            case MINIMUM:
-                System.out.println("Minimum");
-                break;
-        }
     }
 
     public Car(){
