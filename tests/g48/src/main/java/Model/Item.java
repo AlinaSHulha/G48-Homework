@@ -30,7 +30,6 @@ public abstract class Item {
         }
     }
 
-
     public Item(){
         this.log = LogManager.getLogger(this.getClass().getName());
     }

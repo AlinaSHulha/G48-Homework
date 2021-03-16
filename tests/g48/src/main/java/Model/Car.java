@@ -79,7 +79,4 @@ public class Car extends Item {
         return String.format("Назваание: %s; Цвет: %s", this.carName, this.color);
     }
 
-    {
-
-    }
 }

@@ -68,7 +68,6 @@ public class Application {
         }
         Item.showElements(carNames);
 
-
     }
 
 }
