@@ -1,3 +1,4 @@
+import Model.Bike;
 import Model.Car;
 import Model.Item;
 import org.apache.logging.log4j.LogManager;
@@ -12,6 +13,7 @@ import static Model.Car.count;
 public class Application {
 
     private final static Logger LOG = LogManager.getLogger("Тест");
+    private static Object String;
 
     public static void main(String[] args) {
 
@@ -41,24 +43,6 @@ public class Application {
             }
 
         }
-        LOG.info("Текущее количество машин: " + count);
-        try {
-            throw new IllegalArgumentException(
-                    "Ошибка " +
-                            "переменной");
-        } catch (IllegalArgumentException i) {
-            LOG.error(i);
-        }
-        {
-            try {
-                throw new IllegalAccessException(
-                        "Неизвестная ошибка");
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                LOG.error(e);
-            }
-
-        }
         LOG.info(cars);
 
         List<String> carNames = new ArrayList<>();
@@ -66,8 +50,19 @@ public class Application {
             car.showName();
             carNames.add(car.getCarName());
         }
-        Item.showElements(carNames);
+//        Item.showElements(carNames);
+////        Item.showElements(null);
 
+        Car myCar = new Car();
+        Item[] item = null;
+        myCar.showElements(item);
+        Bike myBike = new Bike();
+        Car[] carArray = new Car[]{
+                new Car("Ford", "black"),
+                new Car("BMW", "blue")
+        };
+        myBike.showElements(carArray);
+        myBike.showElements(carNames);
     }
 
 }
