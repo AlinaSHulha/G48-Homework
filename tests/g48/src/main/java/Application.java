@@ -1,8 +1,10 @@
 //import Model.Bike;
 //import Model.Car;
 //import Model.Item;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -35,13 +37,24 @@ public class Application {
             driver.findElement(By.xpath("//summary[@aria-label = 'View profile and more' ]  ")).click();
             driver.findElement(By.xpath("//a[@href='/AlinaSHulha?tab=repositories']")).click();
             driver.findElement(By.xpath("//a[@href='/AlinaSHulha/G48-Homework']")).click();
-            driver.findElement(By.xpath("//a[@href='/AlinaSHulha/G48-Homework/tree/Homework1.1/tests/g48']")).click();
-            driver.findElement(By.xpath("//a[@href='/AlinaSHulha/G48-Homework/blob/Homework1.1/tests/g48/pom.xml']")).click();
+            driver.findElement(By.xpath("//span[@class = ('css-truncate-target')]")).click();
+            driver.findElement(By.xpath("//a[@href = 'https://github.com/AlinaSHulha/G48-Homework/tree/Homework2']")).click();
+            driver.findElement(By.xpath("//a[@href='/AlinaSHulha/G48-Homework/tree/Homework2/tests/g48']")).click();
+            driver.findElement(By.xpath("//a[@href='/AlinaSHulha/G48-Homework/blob/Homework2/tests/g48/pom.xml']")).click();
+//         driver.findElement(By.xpath("//td[@id = ('LC35')]"));
+            String actual = driver.findElement(By.xpath("//td[@id='LC35']")).getAttribute("textContent");
+            String input = "3.141.59";
+            boolean result = input.matches("(3.141.59)");
+            if (result) {
+                System.out.println("Version matches");
+            } else {
+                System.out.println("Version not matches");
 
-          //  LOG.error(driver.findElement(By.xpath("//div[@class = 'flash flash-full flash-error ']/div")).getText());
+            }
         } finally {
             driver.quit();
         }
+
 
 //        String[] colors = new String[]{
 //                "red",
