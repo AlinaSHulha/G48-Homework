@@ -41,16 +41,10 @@ public class Application {
             driver.findElement(By.xpath("//a[@href = 'https://github.com/AlinaSHulha/G48-Homework/tree/Homework2']")).click();
             driver.findElement(By.xpath("//a[@href='/AlinaSHulha/G48-Homework/tree/Homework2/tests/g48']")).click();
             driver.findElement(By.xpath("//a[@href='/AlinaSHulha/G48-Homework/blob/Homework2/tests/g48/pom.xml']")).click();
-//         driver.findElement(By.xpath("//td[@id = ('LC35')]"));
             String actual = driver.findElement(By.xpath("//td[@id='LC35']")).getAttribute("textContent");
-            String input = "3.141.59";
-            boolean result = input.matches("(3.141.59)");
-            if (result) {
-                System.out.println("Version matches");
-            } else {
-                System.out.println("Version not matches");
 
-            }
+            Assert.assertTrue("Version is not matches", actual.contains("3.141.59"));
+
         } finally {
             driver.quit();
         }
