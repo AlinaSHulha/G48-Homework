@@ -1,4 +1,4 @@
-package Model;
+package Model.NoGitHub;
 
 public class Car extends Item {
 

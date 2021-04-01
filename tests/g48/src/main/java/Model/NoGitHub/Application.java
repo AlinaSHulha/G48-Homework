@@ -1,6 +1,6 @@
-//import Model.Bike;
-//import Model.Car;
-//import Model.Item;
+package Model.NoGitHub;//import Model.NoGitHub.Bike;
+//import Model.NoGitHub.Car;
+//import Model.NoGitHub.Item;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

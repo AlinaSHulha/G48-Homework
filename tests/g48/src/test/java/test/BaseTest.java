@@ -1,5 +1,4 @@
 package test;
-
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +16,8 @@ public abstract class BaseTest {
 
     @Before
     public void init(){
-        driver = new ChromeDriver();
+        String browserName = System.getProperty("browser", "chrome");
+        this.driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://github.com/login");
@@ -30,4 +30,3 @@ public abstract class BaseTest {
 
 
 }
-

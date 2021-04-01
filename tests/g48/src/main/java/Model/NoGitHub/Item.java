@@ -1,4 +1,4 @@
-package Model;
+package Model.NoGitHub;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

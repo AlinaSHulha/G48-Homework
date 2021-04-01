@@ -1,29 +1,41 @@
 package test;
 
-
-import org.junit.Assert;
-import org.openqa.selenium.By;
+import org.junit.Before;
+import org.junit.Test;
+import Model.Pages.LoginPage;
 import org.openqa.selenium.WebDriver;
+
 
 public class LoginPageTest extends BaseTest {
 
-    private final By loginField = By.name("login");
-    private final By passwordField = By.name("password");
-    private final By submitButton = By.name("commit");
-    private final By errorMessageText = By.xpath("//div[@class = 'flash flash-full flash-error ']/div");
+
+    private LoginPage loginPage;
 
     public LoginPageTest(WebDriver driver) {
         super(driver);
+
     }
 
-    public void login(String username, String password){
-        driver.findElement(loginField).sendKeys(username);
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(submitButton).click();
+    @Before
+    public void setUp(){
+        loginPage = new LoginPage(driver);
     }
 
-    public void validateErrorMessage(String errorMessage){
-        Assert.assertEquals(errorMessage, driver.findElement(errorMessageText).getText());
+    @Test
+    public void checkNegativeLogin(){
+        loginPage.login("AlinaSHulha","1243asdsxx");
+        loginPage.validateErrorMessage("Incorrect username or password.");
     }
+
+    @Test
+    public void showCommitMessageTest(){
+        loginPage.login(System.getProperty("username"), System.getProperty("password"))
+                .openProjectG48()
+                .showCommitMessage()
+                .logout();
+    }
+
+
+
 
 }
