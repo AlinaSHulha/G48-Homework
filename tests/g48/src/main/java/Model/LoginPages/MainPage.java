@@ -12,9 +12,11 @@ public class MainPage extends BaseAuthorizedPage{
         super(driver);
     }
 
-    private By repositoryLink = By.xpath("//span[@title = 'G48Automation']");
+    private By search = By.xpath("//input[@name = 'q']");
+    private By repositoryLink = By.xpath("//div[@aria-label = 'AlinaSHulha/G48-Homework']");
 
     public ProjectPage openProjectG48(){
+        driver.findElement(search).click();
         waitFor25.until(elementToBeClickable(repositoryLink)).click();
         return new ProjectPage(driver);
     }

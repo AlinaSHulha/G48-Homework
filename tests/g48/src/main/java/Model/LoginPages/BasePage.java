@@ -9,7 +9,7 @@ public abstract class BasePage {
 
     protected final Logger LOG = LogManager.getLogger(this.getClass().getName());
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
     protected WebDriverWait waitFor10;
     protected WebDriverWait waitFor25;
 

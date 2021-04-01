@@ -8,11 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
 
-    protected WebDriver driver;
-
-    public BaseTest(WebDriver driver) {
-
-    }
+    protected ChromeDriver driver;
 
     @Before
     public void init(){

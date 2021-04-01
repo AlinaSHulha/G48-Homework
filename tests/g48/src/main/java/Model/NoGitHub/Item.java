@@ -10,6 +10,7 @@ import static java.lang.String.format;
 
 public abstract class Item {
 
+
     private String type;
     protected final Logger log;
     protected String name;
