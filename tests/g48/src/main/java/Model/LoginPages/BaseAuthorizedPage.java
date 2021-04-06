@@ -1,5 +1,6 @@
 package Model.LoginPages;
 
+import Model.Pages.issues.IssuesPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;

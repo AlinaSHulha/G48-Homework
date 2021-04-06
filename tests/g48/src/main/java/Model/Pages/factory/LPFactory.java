@@ -1,4 +1,4 @@
-package Model.LoginPages;
+package Model.Pages.factory;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;

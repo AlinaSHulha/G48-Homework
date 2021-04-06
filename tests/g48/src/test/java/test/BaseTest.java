@@ -8,12 +8,16 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
 
-    protected ChromeDriver driver;
+    protected WebDriver driver;
 
     @Before
     public void init(){
         String browserName = System.getProperty("browser", "chrome");
-        this.driver = new ChromeDriver();
+        switch (browserName){
+            default:
+                this.driver = new ChromeDriver();
+                break;
+        }
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://github.com/login");

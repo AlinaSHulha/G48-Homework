@@ -1,5 +1,6 @@
 package Model.LoginPages;
 
+import Model.Pages.issues.IssuesPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ public abstract class BasePage {
 
     protected final Logger LOG = LogManager.getLogger(this.getClass().getName());
 
-    protected static WebDriver driver;
+    protected WebDriver driver;
     protected WebDriverWait waitFor10;
     protected WebDriverWait waitFor25;
 
