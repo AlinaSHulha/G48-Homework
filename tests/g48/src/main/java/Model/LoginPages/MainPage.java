@@ -8,8 +8,9 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClick
 
 public class MainPage extends BaseAuthorizedPage{
 
-    public MainPage(WebDriver driver) {
-        super(driver);
+    private static final String title = "Основная страница";
+    public MainPage(WebDriver driver, String title) {
+        super(driver, title);
     }
 
     private By search = By.xpath("//input[@name = 'q']");

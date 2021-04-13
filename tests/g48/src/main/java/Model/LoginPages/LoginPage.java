@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class LoginPage extends BasePage {
+    private static final String title = "Основная страница";
 
     private final static Logger LOG = LogManager.getLogger();
 
@@ -29,17 +30,19 @@ public class LoginPage extends BasePage {
 
 
     public LoginPage(WebDriver driver) {
-        super(driver);
+        super(driver, title);
     }
 
 //    public void homeTabs() {
 //    }
 
     public MainPage login(String username, String password){
+        LOG.info("Авторизация");
         driver.findElement(loginField).sendKeys("AlinaSHulha");
         driver.findElement(passwordField).sendKeys("Richard123789456");
         driver.findElement(submitButton).click();
-        return new MainPage(driver);
+        LOG.info("Авторизаци успешна");
+        return new MainPage(driver, title);
     }
 
     public LoginPage validateErrorMessage(String errorMessage){
