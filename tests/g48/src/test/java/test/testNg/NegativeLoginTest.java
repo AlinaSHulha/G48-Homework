@@ -38,7 +38,8 @@ public class NegativeLoginTest extends BaseTest {
     public static List<Object[]> data() {
         List<Object[]> result = new ArrayList<>();
         List<String> dataFromExcel =
-                readFile(getProperty("user.dir") + "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document");
+                readFile(getProperty("user.dir") +
+                        "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document");
         for (String line : dataFromExcel) {
             String[] temp = line.split(";");
             result.add(new Object[]{Arrays.asList(temp[0], temp[1].split(";"))});
