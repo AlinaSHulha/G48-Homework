@@ -1,44 +1,94 @@
 package test;
+
 import Model.LoginPages.LoginPage;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import static helpers.FileHelper.readFile;
 import static java.lang.System.getProperty;
 
-public class issueCreationTest extends BaseTest{
+@RunWith(Parameterized.class)
+public class issueCreationTest extends BaseTest {
 
-    private String titleOnPage;
-    private String body;
-    private List<String> labels;
+    private final String titleOnPage;
+    private final String body;
+    private final List<String> labels;
 
-    private  LoginPage page;
-//    private  List<String> labels = new ArrayList<>();
+    private LoginPage page;
+
+//        public issueCreationTest(String titleOnPage, String body, List<String> labels) {
+//        this.titleOnPage = titleOnPage;
+//        this.body = body;
+//        this.labels = labels;
+//    }
+    public issueCreationTest(List<Object> object) {
+        this.body = object.get(1).toString();
+        this.titleOnPage = object.get(0).toString();
+        this.labels = (List<String>) object.get(2);
+    }
+
+//    @Parameterized.Parameters
+//    public static List<Object[][]> data() {
+//        List<Object[][]> result = new ArrayList<>();
+//        List<String> data = readFile(
+//                "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document");
+//        for (int i = 0; i < data.size(); i++) {
+//            String line = data.get(i);
+//            String[] temp = line.split(";");
+//            Object[][] element = new Object[1][];
+//            element[i] = new Object[]{Arrays.asList(temp[0], temp[1],
+//                    Arrays.stream(temp[2].split(",")).flatMap(Stream::of).collect(Collectors.toList()))};
+//            result.add(element);
+//            //   result.add(new Object[]{Arrays.asList(temp[0], temp[1], temp[2], line.split(","))});
+//        }
+//        return result;
+//    }
+
+    @Parameterized.Parameters
+    public static Object[][] data() {
+        List<String> data = readFile(
+                "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document");
+        Object[][] result = new Object[data.size()][];
+        for (int i = 0; i < data.size(); i++) {
+            String line = data.get(i);
+            String[] temp = line.split(";");
+            result[i] = new Object[]{Arrays.asList(temp[0], temp[1],
+                    Arrays.stream(temp[2].split(",")).flatMap(Stream::of).collect(Collectors.toList()))};
+        }
+        return result;
+    }
+
 
     @Before
-    public void prepareData(){
+    public void prepareData() {
         this.page = new LoginPage(this.driver);
-        labels.add("bug");
-        labels.add("question");
-        labels.add("documentation");
     }
 
-        @Test
-        public void checkIssueCreation(){
-            this.page.login(getProperty("AlinaSHulha"), getProperty("Richard123789456"))
-                    .openProjectG48()
-                    .openIssues()
-                    .openCreationPage()
-                    .createNewIssue(
-                            "Automated Issue Title",
-                            "Test body. Please ignore me!", labels)
-                    .validateIssue("Automated Issue Title",
-                            "Test body. Please ignore me!", labels)
-                    .logout();
 
-        }
+    @Test
+    public void checkIssueCreation() {
+        this.page.login(getProperty("AlinaSHulha"), getProperty("Richard123789456"))
+                .openProjectG48()
+                .openIssues()
+                .openCreationPage()
+                .createNewIssue(
+                        this.titleOnPage,
+                        this.body,
+                        this.labels)
+                .validateIssue(
+                        this.titleOnPage,
+                        this.body,
+                        this.labels)
+                .logout();
 
     }
+}

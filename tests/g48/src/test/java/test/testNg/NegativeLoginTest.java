@@ -35,22 +35,31 @@ public class NegativeLoginTest extends BaseTest {
 
 
     @Parameterized.Parameters
-    public static List<Object[]> data() {
+    public static List<Object[]> prepareData() {
         List<Object[]> result = new ArrayList<>();
         List<String> dataFromExcel =
-                readFile(getProperty("user.dir") +
-                        "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document");
+                readFile(getProperty(
+                        "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document"));
         for (String line : dataFromExcel) {
-            String[] temp = line.split(";");
-            result.add(new Object[]{Arrays.asList(temp[0], temp[1].split(";"))});
+         String[] temp = line.split(";");
+            result.add(new Object[]{Arrays.asList(temp[0], temp[1], temp[2], line.split(","))});
         }
         return result;
     }
 
-    @Test
-    public void checkNegativeLogin() {
-        loginPage.login(this.username, this.password);
-        loginPage.validateErrorMessage("Incorrect username or password.");
+//    @Parameterized.Parameters
+//    public static List<Object[]> data(){
+//        List<Object[]> result = new ArrayList<>();
+//        readFile(getProperty("user.dir") + "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document")
+//                .forEach(line -> result.add(line.split(", ")));
+//        return result;
+//    }
+
+        @Test
+        public void checkNegativeLogin () {
+            loginPage.login(this.username, this.password);
+            loginPage.validateErrorMessage("Incorrect username or password.");
+        }
     }
-}
+
 
