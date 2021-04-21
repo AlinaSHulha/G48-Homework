@@ -25,33 +25,11 @@ public class issueCreationTest extends BaseTest {
 
     private LoginPage page;
 
-//        public issueCreationTest(String titleOnPage, String body, List<String> labels) {
-//        this.titleOnPage = titleOnPage;
-//        this.body = body;
-//        this.labels = labels;
-//    }
     public issueCreationTest(List<Object> object) {
         this.body = object.get(1).toString();
         this.titleOnPage = object.get(0).toString();
         this.labels = (List<String>) object.get(2);
     }
-
-//    @Parameterized.Parameters
-//    public static List<Object[][]> data() {
-//        List<Object[][]> result = new ArrayList<>();
-//        List<String> data = readFile(
-//                "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document");
-//        for (int i = 0; i < data.size(); i++) {
-//            String line = data.get(i);
-//            String[] temp = line.split(";");
-//            Object[][] element = new Object[1][];
-//            element[i] = new Object[]{Arrays.asList(temp[0], temp[1],
-//                    Arrays.stream(temp[2].split(",")).flatMap(Stream::of).collect(Collectors.toList()))};
-//            result.add(element);
-//            //   result.add(new Object[]{Arrays.asList(temp[0], temp[1], temp[2], line.split(","))});
-//        }
-//        return result;
-//    }
 
     @Parameterized.Parameters
     public static Object[][] data() {
@@ -66,7 +44,6 @@ public class issueCreationTest extends BaseTest {
         }
         return result;
     }
-
 
     @Before
     public void prepareData() {
