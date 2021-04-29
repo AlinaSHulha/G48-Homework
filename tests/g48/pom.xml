@@ -9,7 +9,7 @@
     <version>0.1.1</version>
 
     <properties>
-        <driver.dir.path>${project.basedir}/tests/g48/target/allure-results</driver.dir.path>
+        <driver.dir.path>${project.basedir}/src/main/resources/drivers</driver.dir.path>
         <browser>${browser}</browser>
         <driver.name>${driver.name}</driver.name>
         <driver.path>${driver.path}</driver.path>
