@@ -1,29 +1,31 @@
 package test;
 
 import dbModel.Users;
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
 import Model.Pages.issues.IssuesPage;
 import jdk.jfr.Description;
 import Model.LoginPages.LoginPage;
 
-public class LoginPageTest extends BaseTest{
-    @Feature("Positive authorization")
-    @Story("Github auth")
-    @Owner("AlinaSHulha")
-    @Severity(SeverityLevel.NORMAL)
-    public class LoginPageTest extends BaseTest{
+@Feature("Positive authorization")
+@Story("Github auth")
+@Owner("AlinaSHulha")
+@Severity(SeverityLevel.NORMAL)
+public class LoginPageTest extends BaseTest {
+
 
 
         private LoginPage loginPage;
 
         @Before
-        public void setUp(){
+        public void setUp() {
             loginPage = new LoginPage(driver);
         }
 
         @Test
-        public void checkNegativeLogin(){
+        public void checkNegativeLogin() {
             Users user = Users.findById(1);
             loginPage.login(
                     user.getString("username"),
@@ -40,12 +42,13 @@ public class LoginPageTest extends BaseTest{
         )
         @DisplayName("Показать сообщение коммита")
         @Test
-        public void showCommitMessageTest(){
+        public void showCommitMessageTest() {
             loginPage.login(System.getProperty("username"), System.getProperty("password"))
                     .openProjectG48()
                     .showCommitMessage()
                     .logout();
         }
+    }
 
 
 

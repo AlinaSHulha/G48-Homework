@@ -45,7 +45,7 @@ public class NpSettlementsTest extends BaseApiTest{
                 .body(
                         matchesJsonSchema(
                                 new File(getProperty("user.dir")
-                                        + "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/jsonSchema/settlements.json")));
+                                        + "/src/main/resources/testData/jsonSchema/settlements.json")));
     }
 
 

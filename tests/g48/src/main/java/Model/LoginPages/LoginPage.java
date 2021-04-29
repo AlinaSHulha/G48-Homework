@@ -1,11 +1,13 @@
 package Model.LoginPages;
 
 import Model.Pages.issues.IssuesPage;
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class LoginPage extends BasePage {
@@ -33,10 +35,8 @@ public class LoginPage extends BasePage {
         super(driver, title);
     }
 
-//    public void homeTabs() {
-//    }
-
-    public MainPage login(String username, String password){
+    @Step("Производится авторизация")
+    public MainPage login(String username, String password) {
         LOG.info("Авторизация");
         driver.findElement(loginField).sendKeys("AlinaSHulha");
         driver.findElement(passwordField).sendKeys("Richard123789456");
@@ -45,43 +45,10 @@ public class LoginPage extends BasePage {
         return new MainPage(driver, title);
     }
 
-    public LoginPage validateErrorMessage(String errorMessage){
+    @Step("Валидируем сообщение об ошибке")
+    public LoginPage validateErrorMessage(String errorMessage) {
         waitFor25.until(visibilityOf(driver.findElement(errorMessageText)));
         Assert.assertEquals(errorMessage, driver.findElement(errorMessageText).getText());
         return this;
     }
 }
-
-//    public LoginPage profilMenu() {
-//        driver.findElement(profileMenu).getText();
-//        return new LoginPage(driver) }
-
-
-//            public void homeTabs() {
-//                String codeText = driver.findElement(code).getText();
-//                LOG.info(codeText);
-//
-//                String issuesText = driver.findElement(issues).getText();
-//                LOG.info(issuesText);
-//
-//                String pullRequestText = driver.findElement(pullRequests).getText();
-//                LOG.info(pullRequestText);
-//
-//                String actionsText = driver.findElement(actions).getText();
-//                LOG.info(actionsText);
-//
-//                String projectsText = driver.findElement(projects).getText();
-//                LOG.info(projectsText);
-//
-//                String wikiText = driver.findElement(wiki).getText();
-//                LOG.info(wikiText);
-//
-//                String securityText = driver.findElement(security).getText();
-//                LOG.info(securityText);
-//
-//                String insightsText = driver.findElement(insights).getText();
-//                LOG.info(insightsText);
-//
-//                String settingsText = driver.findElement(settings).getText();
-//                LOG.info(securityText);
-//            }

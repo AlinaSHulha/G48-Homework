@@ -23,7 +23,9 @@ public abstract class BaseProjectPage extends BaseAuthorizedPage{
     }
 
     public IssuesPage openIssues(){
+        LOG.info("Открыватся вкладка задач проекта");
         driver.findElement(issuesTab).click();
+        LOG.info("Успешно");
         return new IssuesPage(driver);
     }
 

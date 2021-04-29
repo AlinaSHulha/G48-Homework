@@ -47,13 +47,6 @@ public class NegativeLoginTest extends BaseTest {
         return result;
     }
 
-//    @Parameterized.Parameters
-//    public static List<Object[]> data(){
-//        List<Object[]> result = new ArrayList<>();
-//        readFile(getProperty("user.dir") + "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document")
-//                .forEach(line -> result.add(line.split(", ")));
-//        return result;
-//    }
 
         @Test
         public void checkNegativeLogin () {

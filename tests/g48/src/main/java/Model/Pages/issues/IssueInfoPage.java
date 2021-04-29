@@ -28,6 +28,7 @@ public class IssueInfoPage extends BaseProjectPage {
     private final By labels = By.xpath("//a[@class = 'IssueLabel hx_IssueLabel d-inline-block v-align-middle']");
 
     public IssueInfoPage validateIssue(String expectedTitle, String expectedBody, List<String> expectedLabels) {
+        LOG.info("Проверяем успешность создания задачи и соответствие её полей");
         assertEquals(expectedTitle, waitFor10.until(visibilityOf(driver.findElement(titleOnPage))).getText());
         assertEquals(expectedBody, driver.findElement(body).getText());
 
@@ -38,6 +39,7 @@ public class IssueInfoPage extends BaseProjectPage {
             labelsTitles.add(label.getText());
         });
         Assert.assertEquals(expectedLabels, labelsTitles);
+        LOG.info("Создание успешно. Тест пройден");
         return this;
     }
 }

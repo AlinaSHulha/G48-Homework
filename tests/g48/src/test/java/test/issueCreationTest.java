@@ -53,7 +53,7 @@ public class issueCreationTest extends BaseTest {
 
     @Test
     public void checkIssueCreation() {
-        this.page.login(getProperty("AlinaSHulha"), getProperty("Richard123789456"))
+        this.page.login(getProperty("username"), getProperty("password"))
                 .openProjectG48()
                 .openIssues()
                 .openCreationPage()

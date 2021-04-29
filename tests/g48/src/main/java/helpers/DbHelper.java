@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DbHelper {
+
     private static final String JDBC_DRIVER = "org.postgresql.Driver";
     private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/study";
 
@@ -49,9 +50,9 @@ public class DbHelper {
             statement.executeQuery(sqlQuery);
             ResultSet resultSet = statement.getResultSet();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 List<Object> temp = new ArrayList<>();
-                for (String field: fields){
+                for (String field : fields) {
                     temp.add(resultSet.getObject(field));
                 }
                 result.add(temp);
@@ -62,4 +63,3 @@ public class DbHelper {
         return result;
     }
 }
-

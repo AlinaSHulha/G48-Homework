@@ -3,6 +3,8 @@ package Model.LoginPages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import io.qameta.allure.Step;
+
 
 public abstract class BaseAuthorizedPage extends BasePage{
 
@@ -13,6 +15,7 @@ public abstract class BaseAuthorizedPage extends BasePage{
     private final By userProfileButton = By.xpath("//summary[@aria-label='View profile and more']");
     private final By logOutButton = By.xpath("//button[contains(text(), 'Sign')]");
 
+    @Step("Выходим из приложения")
     public HomePage logout(){
         driver.findElement(userProfileButton).click();
         waitFor10.until(ExpectedConditions.visibilityOf(driver.findElement(logOutButton))).click();
