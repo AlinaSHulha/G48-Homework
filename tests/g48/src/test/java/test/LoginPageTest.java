@@ -5,8 +5,6 @@ import io.qameta.allure.*;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
-import Model.Pages.issues.IssuesPage;
-import jdk.jfr.Description;
 import Model.LoginPages.LoginPage;
 
 @Feature("Positive authorization")
