@@ -37,8 +37,8 @@ public abstract class BaseTest {
 
     @Before
     public void init(){
-        String browserName = System.getProperty("browser", "ChromeDriver");
-        if ("ChromeDriver".equals(browserName)) {
+        String browserName = System.getProperty("browser", "Chrome");
+        if ("chrome".equals(browserName)) {
             this.driver = new ChromeDriver();
         }
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
