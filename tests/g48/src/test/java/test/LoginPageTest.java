@@ -14,7 +14,6 @@ import Model.LoginPages.LoginPage;
 public class LoginPageTest extends BaseTest {
 
 
-
         private LoginPage loginPage;
 
         @Before

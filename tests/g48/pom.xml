@@ -52,7 +52,7 @@
                     </argLine>
                     <systemPropertyVariables>
                         <username>AlinaSHulha</username>
-                        <password>Richard123789456</password>
+                        <password>Richard96</password>
                         <allure.results.directory>${project.basedir}/target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                     <properties>
@@ -86,7 +86,7 @@
             <id>Chrome</id>
             <properties>
                 <browser>chrome</browser>
-                <browser.version>84.0</browser.version>
+                <browser.version>90.0</browser.version>
                 <driver.name>webdriver.chrome.driver</driver.name>
                 <driver.path>${driver.dir.path}/chrome/${browser.version}/chromedriver</driver.path>
             </properties>
