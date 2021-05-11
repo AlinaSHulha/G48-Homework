@@ -6,18 +6,11 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
@@ -45,18 +38,8 @@ public abstract class BaseTest {
 
     @Before
     public void init(){
-        String browserName = System.getProperty("browser", "chrome");
-        switch (browserName){
-            case "firefox":
-                this.driver = new FirefoxDriver();
-                break;
-            case "opera":
-                this.driver = new OperaDriver();
-                break;
-            default:
-                this.driver = new ChromeDriver();
-                break;
-        }
+    //    String browserName = System.getProperty("browser", "chrome");
+        this.driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://github.com/login");
