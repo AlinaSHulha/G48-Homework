@@ -24,6 +24,7 @@ public class Application {
 
     public static void main(String[] args) {
         LOG.info("=========Start========");
+        System.setProperty("webdriver.chrome.driver", "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/Chrome90/chromedriver_mac64.zip");
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();

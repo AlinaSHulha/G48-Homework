@@ -10,6 +10,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,8 +40,16 @@ public abstract class BaseTest {
 
     @Before
     public void init(){
-    //    String browserName = System.getProperty("browser", "chrome");
-        this.driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/Chrome90/chromedriver");
+        String browserName = System.getProperty("browser", "chrome");
+        switch (browserName){
+            case "firefox":
+                this.driver = new FirefoxDriver();
+                break;
+            default:
+                this.driver = new ChromeDriver();
+                break;
+        }
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://github.com/login");

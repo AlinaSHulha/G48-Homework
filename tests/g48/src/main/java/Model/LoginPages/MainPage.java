@@ -21,6 +21,7 @@ public class MainPage extends BaseAuthorizedPage{
     @Step("Открываем проект G48Automation")
     public CodePage openProjectG48(){
         LOG.info("Открывается страница проекта G48Automation");
+       waitFor10.until(elementToBeClickable(search)).click(); ;
         waitFor25.until(elementToBeClickable(repositoryLink)).click();
         LOG.info("Успешно");
         return new CodePage(driver);
