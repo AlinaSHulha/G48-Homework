@@ -28,14 +28,14 @@ public abstract class BaseTest {
         public byte[] saveScreenshot(byte[] screenshotAsBytes){
             return screenshotAsBytes;
         }
-
-        @Override
-        protected void failed(Throwable e, Description description) {
-            if (driver != null){
-                saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
-            }
-            super.failed(e, description);
-        }
+//
+//        @Override
+//        protected void failed(Throwable e, Description description) {
+//            if (driver != null){
+//                saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
+//            }
+//            super.failed(e, description);
+//        }
     };
 
     @Before

@@ -12,23 +12,17 @@ public class SomeTest
 {
     @Test
     public void someExcel(){
-        readDataFromExcelFile(
-                writeToExcelFileAndGet(
-                        "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document",
                         readDataFromExcelFile(
                                 "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Document",
-                                "Sheet1")).getPath(), "Automated Sheet")
+                                "Sheet1")
                 .forEach(System.out::println);
     }
 
     @Test
     public void checkExcelProvider(){
-        readDataFromExcelFile(
-                writeToExcelFileAndGet(
-                        "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Homework.xlsx",
                         readDataFromExcelFile(
                                 "/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/testData/Homework.xlsx",
-                                "Sheet1")).getPath(), "Automated Sheet")
+                                "Sheet1")
                 .forEach(System.out::println);
     }
     @Test

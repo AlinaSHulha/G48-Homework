@@ -16,7 +16,7 @@ public class PropertyLoader {
         Properties prop = new Properties();
         try {
             prop.load(new FileInputStream(System.getProperty("user.dir")
-                    + String.format("/Users/alina/Documents/Homework/G48-Homework/tests/g48/src/main/resources/Config/app.properties.properties", ENV)));
+                    + String.format("/Users/alina/Documents/Homework/G48-Homework/tests/g48/target/test-classes/Config/app.properties.properties", ENV)));
         } catch (IOException e) {
 //            lo(e);
      }
